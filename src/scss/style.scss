@@ -1,13 +1,15 @@
 html {
   height: 100%;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+// *,
+// *:before,
+// *:after {
+//   box-sizing: inherit;
+// }
+
+$wellColor: #F5F5F5;
 
 body {
   position: relative;
@@ -41,4 +43,44 @@ footer {
 
 hr {
   border-color: rgba(0, 0, 0, .3);
+}
+
+@mixin rollover($color) {
+  border: solid 1px $color;
+  &:hover{
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.game {
+  display: flex;
+  margin: 0 0 1em 0;
+  padding: .5em;
+  .gameDetail {
+    margin-left: 1em;
+  }
+  img {
+    -webkit-box-shadow: -3px -3px 5px -1px rgba(0,0,0,0.39);
+    -moz-box-shadow: -3px -3px 5px -1px rgba(0,0,0,0.39);
+    box-shadow: -3px -3px 5px -1px rgba(0,0,0,0.39);
+  }
+  @include rollover($wellColor);
+}
+
+.friends {
+  list-style-type: none;
+  padding: 0 0 0 15px;
+  li {
+    font-size: 1.2em;
+    padding: 3px;
+    @include rollover($wellColor);
+  }
 }

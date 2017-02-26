@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Footer from './Footer';
+// import Footer from './Footer';
 import UserSearch from './UserSearch';
 import GamesList from './GamesList';
 import ShareBox from './ShareBox';
@@ -22,7 +22,6 @@ class App extends Component {
           <GamesList/>
           <ShareBox/>
 
-        <Footer/>
       </div>
     );
   }

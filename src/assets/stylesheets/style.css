@@ -1,11 +1,5 @@
 html {
-  height: 100%;
-  box-sizing: border-box; }
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit; }
+  height: 100%; }
 
 body {
   position: relative;
@@ -35,5 +29,39 @@ footer {
 
 hr {
   border-color: rgba(0, 0, 0, 0.3); }
+
+ul {
+  list-style-type: none;
+  padding-left: 0; }
+
+.game {
+  display: flex;
+  margin: 0 0 1em 0;
+  padding: .5em;
+  border: solid 1px #F5F5F5; }
+  .game .gameDetail {
+    margin-left: 1em; }
+  .game img {
+    -webkit-box-shadow: -3px -3px 5px -1px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: -3px -3px 5px -1px rgba(0, 0, 0, 0.39);
+    box-shadow: -3px -3px 5px -1px rgba(0, 0, 0, 0.39); }
+  .game:hover {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    cursor: pointer; }
+
+.friends {
+  list-style-type: none;
+  padding: 0 0 0 15px; }
+  .friends li {
+    font-size: 1.2em;
+    padding: 3px;
+    border: solid 1px #F5F5F5; }
+    .friends li:hover {
+      background-color: #fff;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
