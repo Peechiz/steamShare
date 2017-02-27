@@ -4,10 +4,28 @@ import Header from './Header';
 import UserSearch from './UserSearch';
 import GamesList from './GamesList';
 import ShareBox from './ShareBox';
+import tf2 from './assets/images/tf2.jpg'
+
 
 
 class App extends Component {
+
+
   render() {
+    const games = [
+      {
+        img: tf2,
+        title: "Team Fortress 2",
+        hours: 212,
+        link: "http://mrpeech.com"
+      },
+      {
+        img: tf2,
+        title: "Splatoon",
+        hours: 50,
+        link: "http://mrpeech.com"
+      }
+    ]
     return (
       <div>
         <Header />
@@ -19,7 +37,7 @@ class App extends Component {
           </div>
 
           <UserSearch/>
-          <GamesList/>
+          <GamesList games={games}/>
           <ShareBox/>
 
       </div>
