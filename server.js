@@ -7,6 +7,7 @@ let app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.post('/scrape/:user', (req,res) => {
+  console.log('Scraping from ' + req.params.user);
   scrape(req.params.user)
     .then(games => {
       res.send(games)
