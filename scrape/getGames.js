@@ -1,7 +1,7 @@
 // const fs = require('fs');
 const Nightmare = require('nightmare');
 var nightmare = Nightmare({
-  show: true
+  show: false
 });
 
 function getSteamGames(user) {
@@ -13,7 +13,7 @@ function getSteamGames(user) {
     .goto(`http://steamcommunity.com/id/${user}/games/?tab=all&sort=playtime`)
     .wait(5000)
     .scrollTo(99999,0)
-    .inject('js', './jquery.min.js')
+    .inject('js', __dirname + '/jquery.js')
     .evaluate(() => {
 
       var list = [];
@@ -34,7 +34,7 @@ function getSteamGames(user) {
       // var stream = fs.createWriteStream(`./${user}Games.json`)
       // stream.write(JSON.stringify(games, null, 2));
       // stream.end();
-      // resolve(games)
+      resolve(games)
 
     })
     .catch(err => {
