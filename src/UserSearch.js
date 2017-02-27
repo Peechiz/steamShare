@@ -15,7 +15,16 @@ class UserSearch extends Component {
   }
 
   handleSubmit(event) {
-    console.log("User: " + this.state.user);
+    var self = this;
+    function reqRes(){
+      //console.log(this.responseText);
+      self.props.onSubmit(JSON.parse(this.responseText))
+    }
+    var fetchGames = new XMLHttpRequest();
+    fetchGames.addEventListener('load', reqRes);
+    fetchGames.open('POST', `/scrape/${this.state.user}`);
+    fetchGames.send();
+
     event.preventDefault();
   }
 

@@ -10,22 +10,18 @@ import tf2 from './assets/images/tf2.jpg'
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {games: []}
+  }
+
+  handleSubmit(fetched) {
+    this.setState({games: fetched})
+  }
 
   render() {
-    const games = [
-      {
-        img: tf2,
-        title: "Team Fortress 2",
-        hours: 212,
-        link: "http://mrpeech.com"
-      },
-      {
-        img: tf2,
-        title: "Splatoon",
-        hours: 50,
-        link: "http://mrpeech.com"
-      }
-    ]
+    const games = this.state.games;
     return (
       <div>
         <Header />
@@ -36,7 +32,7 @@ class App extends Component {
             </div>
           </div>
 
-          <UserSearch/>
+          <UserSearch onSubmit={this.handleSubmit}/>
           <GamesList games={games}/>
           <ShareBox/>
 
