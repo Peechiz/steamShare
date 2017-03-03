@@ -34,6 +34,7 @@ function getSteamGames(user) {
       // var stream = fs.createWriteStream(`./${user}Games.json`)
       // stream.write(JSON.stringify(games, null, 2));
       // stream.end();
+
       resolve(games)
 
     })
