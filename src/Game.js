@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
 class Game extends Component {
+
+  handleClick(game){
+    this.props.onClick(game)
+  }
+
   render() {
-    console.log(this.props);
     return (
-      <div className="game">
+      <div className="game" onClick={this.handleClick.bind(this, this.props.detail)}>
         <img src={this.props.detail.img} alt={this.props.detail.title}/>
         <div className="gameDetail">
           <ul>
