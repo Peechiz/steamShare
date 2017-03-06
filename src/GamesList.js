@@ -3,9 +3,8 @@ import Game from './Game';
 
 class GamesList extends Component {
   render() {
-    console.log(this.props.games);
     const games = this.props.games.map((game, id) =>
-      <Game detail={game} key={id}/>
+      <Game detail={game} key={id} onClick={this.props.onSelect}/>
       )
     return (
       <div className="col-sm-5">
