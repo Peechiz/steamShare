@@ -39,7 +39,7 @@ class UserSearch extends Component {
             <input type="submit" value="Submit" className="btn btn-success"/>
           </form>
 
-          <FriendsList />
+          <FriendsList friends={this.props.friends}/>
         </div>
       </div>
     );
