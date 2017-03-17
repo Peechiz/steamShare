@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShareListItem from './ShareListItem'
+import ShareButton from './ShareButton'
 
 class ShareList extends Component {
 
@@ -13,6 +14,7 @@ class ShareList extends Component {
           <ul>
             <li>{items}</li>
           </ul>
+          <ShareButton onClick={this.props.onShareSubmit} />
         </div>
       </div>
     )
