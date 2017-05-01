@@ -4,6 +4,7 @@ import Header from './Header';
 import UserSearch from './UserSearch';
 import GamesList from './GamesList';
 import ShareList from './ShareList';
+import LoginForm from './LoginForm';
 import tf2 from './assets/images/tf2.jpg'
 
 class App extends Component {
@@ -34,7 +35,8 @@ class App extends Component {
           "url": "http://zombo.com"
         }
       ],
-      friends: ['Excess Blam', 'Bowflex Stairmaster']
+      friends: ['Excess Blam', 'Bowflex Stairmaster'],
+      isLoggedIn: false
     }
   }
 
@@ -80,6 +82,26 @@ class App extends Component {
     const selected = this.state.games.filter(game => {
       return game.selected;
     });
+    const isLoggedIn = this.state.isLoggedIn;
+    let page = null;
+
+    if (isLoggedIn) {
+      page = <div>
+        <UserSearch onSubmit={this.handleSubmit}
+          friends={this.state.friends}/>
+
+        <GamesList games={games} onSelect={this.handleSelect}/>
+
+        <ShareList items={selected}
+          onDeselect={this.handleDeselect}
+          onShareSubmit={this.handleShare}/>
+      </div>
+    } else {
+      page = <div>
+        <LoginForm/>
+      </div>
+    }
+
     return (
       <div>
         <Header/>
@@ -90,14 +112,7 @@ class App extends Component {
           </div>
         </div>
 
-        <UserSearch onSubmit={this.handleSubmit}
-          friends={this.state.friends}/>
-
-        <GamesList games={games} onSelect={this.handleSelect}/>
-        
-        <ShareList items={selected}
-          onDeselect={this.handleDeselect}
-          onShareSubmit={this.handleShare}/>
+        {page}
 
       </div>
     );
